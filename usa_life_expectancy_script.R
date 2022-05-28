@@ -52,6 +52,7 @@ statemap_df <- statemap_df %>% mutate(year = Year)
 
 #'* Plot graph *
 
+#png("usa_life_expectancy_2019.png", res = 300, width = 4400, height = 2600)
 
 ggmap <- ggplot(data = statemap_df,
        aes(x = long, y = lat, group = group, fill = ex)) +
@@ -80,6 +81,8 @@ graph.animation <- ggmap +
   transition_states(year, state_length = 10)+
   ease_aes("back-out") +
   geom_text(aes(label=paste("Year : ",year)), color = "darkslategrey") 
+
+#dev.off()
 
 
 
